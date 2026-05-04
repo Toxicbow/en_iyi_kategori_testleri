@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En İyi Kategori Testleri ✨</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="description" content="En iyi Türkçe 'O mu Bu mu?' testleri! Yapay zeka destekli, eğlenceli ve interaktif kategorilerle kendini test et.">
+    <meta name="keywords" content="quiz, test, o mu bu mu, türkçe quiz, kategori testleri, eğlence">
+    <meta name="author" content="En İyi Kategori Testleri">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="glass-nav">
+            <div class="nav-content">
+                <div class="logo-area" onclick="location.reload()">
+                    <img src="logo.png" alt="Logo" class="nav-logo">
+                    <span class="site-title">En İyi Kategori Testleri</span>
+                </div>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="icon-btn">
+                        <i data-lucide="moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main id="main-content">
+            <!-- Dynamic Content Container -->
+            <div id="view-container">
+                <!-- Landing Page (Default) -->
+                <section id="home-view" class="active-view">
+                    <div class="hero-section">
+                        <h1 class="gradient-text">Hangi Tarafı <br>Seçiyorsun?</h1>
+                        <p class="hero-subtitle">Yapay zeka tarafından hazırlanan yüzlerce eğlenceli kategoride seçimini yap, tarzını konuştur!</p>
+                        <div class="search-bar">
+                            <i data-lucide="search"></i>
+                            <input type="text" id="category-search" placeholder="Kategori ara...">
+                        </div>
+                    </div>
+
+                    <div class="categories-grid" id="categories-grid">
+                        <!-- Categories will be injected here -->
+                        <div class="loading-spinner"></div>
+                    </div>
+                </section>
+
+                <!-- Quiz View (Hidden initially) -->
+                <section id="quiz-view" class="hidden">
+                    <div class="quiz-header">
+                        <button class="back-btn" onclick="app.showHome()">
+                            <i data-lucide="chevron-left"></i> Geri
+                        </button>
+                        <div class="quiz-info">
+                            <h2 id="current-quiz-title">Yükleniyor...</h2>
+                            <div class="progress-bar">
+                                <div id="quiz-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-container">
+                        <div id="option-a" class="quiz-option" onclick="app.handleChoice('a')">
+                            <!-- Option A content -->
+                        </div>
+                        <div class="vs-badge">VS</div>
+                        <div id="option-b" class="quiz-option" onclick="app.handleChoice('b')">
+                            <!-- Option B content -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <p id="question-counter">Soru: 1 / 10</p>
+                    </div>
+                </section>
+
+                <!-- AI Loading View -->
+                <section id="loading-view" class="hidden">
+                    <div class="loading-content">
+                        <div class="ai-orb"></div>
+                        <h2 class="gradient-text">Yapay Zeka Soruları Hazırlıyor...</h2>
+                        <p>Kategorin analiz ediliyor ve en ilginç karşılaştırmalar seçiliyor.</p>
+                    </div>
+                </section>
+
+                <!-- Results View (Hidden initially) -->
+                <section id="results-view" class="hidden">
+                    <div class="results-card glass">
+                        <h2 class="gradient-text">Test Tamamlandı!</h2>
+                        <div id="results-summary"></div>
+                        <div class="results-actions">
+                            <button class="primary-btn" onclick="location.reload()">
+                                <i data-lucide="rotate-ccw"></i> Tekrar Dene
+                            </button>
+                            <button class="secondary-btn" onclick="app.shareResults()">
+                                <i data-lucide="share-2"></i> Paylaş
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="glass-footer">
+            <p>&copy; 2026 En İyi Kategori Testleri. Yapay Zeka ile hazırlanmıştır.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

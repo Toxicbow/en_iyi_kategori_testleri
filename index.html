@@ -64,6 +64,7 @@
                         </button>
                         <div class="quiz-info">
                             <h2 id="current-quiz-title">Yükleniyor...</h2>
+                            <div class="round-badge" id="round-name">Hazırlanıyor...</div>
                             <div class="progress-bar">
                                 <div id="quiz-progress" style="width: 0%"></div>
                             </div>
@@ -97,7 +98,8 @@
                 <!-- Results View (Hidden initially) -->
                 <section id="results-view" class="hidden">
                     <div class="results-card glass">
-                        <h2 class="gradient-text">Test Tamamlandı!</h2>
+                        <h2 class="gradient-text">Şampiyon Belli Oldu!</h2>
+                        <div id="winner-display" class="winner-display"></div>
                         <div id="results-summary"></div>
                         <div class="results-actions">
                             <button class="primary-btn" onclick="location.reload()">

@@ -118,7 +118,7 @@ body {
 /* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 4rem 0;
+    padding: 2rem 0 3rem;
 }
 
 .gradient-text {
@@ -192,9 +192,10 @@ body {
 
 .category-image {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
-    filter: brightness(0.8);
+    object-position: center;
+    filter: brightness(0.9);
     transition: var(--transition);
 }
 
@@ -297,12 +298,30 @@ body {
     overflow: hidden;
     background: #000;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.5);
+    transform: scale(1.1);
+    z-index: 1;
 }
 
 .option-media img, .option-media iframe {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border: none;
 }
 
@@ -429,7 +448,7 @@ body {
     }
     
     .quiz-option {
-        min-height: 350px;
+        min-height: 400px;
     }
     
     .nav-content {
@@ -478,12 +497,19 @@ body {
     border-radius: 18px;
     overflow: hidden;
     margin: 0 auto 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
 }
 
 .winner-card img, .winner-card iframe {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .winner-name {

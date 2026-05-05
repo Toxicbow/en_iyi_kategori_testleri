@@ -288,13 +288,15 @@ class QuizApp {
             mediaHtml = `<iframe src="${item.media}?autoplay=0" allowfullscreen loading="lazy"></iframe>`;
         } else {
             const imgUrl = item.media.includes('unsplash.com') 
-                ? (item.media.includes('?') ? item.media : `${item.media}?auto=format&fit=crop&q=80&w=800`)
+                ? (item.media.includes('?') ? item.media.replace('fit=crop', 'fit=max') : `${item.media}?auto=format&q=80&w=800`)
                 : item.media;
                 
-            mediaHtml = `<img src="${imgUrl}" 
-                loading="lazy"
-                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800';" 
-                alt="${item.text}">`;
+            mediaHtml = `
+                <div class="media-bg" style="background-image: url('${imgUrl}')"></div>
+                <img src="${imgUrl}" 
+                    loading="lazy"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800';" 
+                    alt="${item.text}">`;
         }
 
         container.innerHTML = `
@@ -338,12 +340,15 @@ class QuizApp {
         this.elements.resultsView.classList.remove('hidden');
         
         const imgUrl = champion.media.includes('unsplash.com') 
-                ? (champion.media.includes('?') ? champion.media : `${champion.media}?auto=format&fit=crop&q=80&w=800`)
+                ? (champion.media.includes('?') ? champion.media.replace('fit=crop', 'fit=max') : `${champion.media}?auto=format&q=80&w=800`)
                 : champion.media;
 
         let champMedia = champion.type === 'video' 
             ? `<iframe src="${champion.media}?autoplay=1" allowfullscreen></iframe>`
-            : `<img src="${imgUrl}" alt="${champion.text}">`;
+            : `
+                <div class="media-bg" style="background-image: url('${imgUrl}')"></div>
+                <img src="${imgUrl}" alt="${champion.text}">
+            `;
 
         this.elements.winnerDisplay.innerHTML = `
             <div class="winner-card">

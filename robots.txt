@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://toxicbow.github.io/en_iyi_kategori_testleri/sitemap.xml

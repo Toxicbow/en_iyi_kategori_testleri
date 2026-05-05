@@ -117,8 +117,7 @@ const quizData = {
                 { text: 'Irish Coffee', media: 'https://images.unsplash.com/photo-1515155075601-23009d0cb6d4', type: 'image' },
                 { text: 'Frappe', media: 'https://images.unsplash.com/photo-1515155075601-23009d0cb6d4', type: 'image' }
             ]
-        },
-        // ... (I will continue with 100 categories in a simplified structure)
+        }
     ]
 };
 
@@ -287,9 +286,10 @@ class QuizApp {
         if(item.type === 'video') {
             mediaHtml = `<iframe src="${item.media}?autoplay=0" allowfullscreen loading="lazy"></iframe>`;
         } else {
-            const imgUrl = item.media.includes('unsplash.com') 
-                ? (item.media.includes('?') ? item.media.replace('fit=crop', 'fit=max') : `${item.media}?auto=format&q=80&w=800`)
-                : item.media;
+            const safeMedia = item.media || 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e';
+            const imgUrl = safeMedia.includes('unsplash.com') 
+                ? (safeMedia.includes('?') ? safeMedia.replace('fit=crop', 'fit=max') : `${safeMedia}?auto=format&q=80&w=800`)
+                : safeMedia;
                 
             mediaHtml = `
                 <div class="media-bg" style="background-image: url('${imgUrl}')"></div>
